@@ -4,132 +4,387 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>SNAPVOX Support | OMEGA BRAIN</title>
+
 <style>
 :root{
-  --bg:#02040b;--cyan:#00eaff;--blue:#0055ff;--pink:#ff4fd8;
-  --purple:#b26cff;--green:#39ff88;--yellow:#fff200;
-  --text:#f7f8ff;--muted:#aab3cf;
+  --bg:#02040b;
+  --cyan:#00eaff;
+  --blue:#0055ff;
+  --pink:#ff4fd8;
+  --purple:#b26cff;
+  --green:#39ff88;
+  --yellow:#fff200;
+  --text:#f7f8ff;
 }
-*{box-sizing:border-box}
+
+*{
+  box-sizing:border-box;
+}
+
 body{
-  margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  color:var(--text);line-height:1.8;background:
-  linear-gradient(rgba(0,234,255,.045) 1px,transparent 1px),
-  linear-gradient(90deg,rgba(0,234,255,.045) 1px,transparent 1px),
-  radial-gradient(circle at 15% 0%,rgba(0,85,255,.55),transparent 30%),
-  radial-gradient(circle at 85% 20%,rgba(255,79,216,.25),transparent 28%),
-  #02040b;background-size:44px 44px,44px 44px,auto,auto,auto;
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text);
+  background:
+    linear-gradient(rgba(0,234,255,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,234,255,.04) 1px,transparent 1px),
+    radial-gradient(circle at top left,rgba(0,85,255,.45),transparent 35%),
+    radial-gradient(circle at top right,rgba(255,79,216,.22),transparent 35%),
+    #02040b;
+
+  background-size:
+    44px 44px,
+    44px 44px,
+    auto,
+    auto;
+
+  line-height:1.8;
 }
-.wrap{max-width:1180px;margin:auto;padding:34px 18px 80px}
-.nav{display:flex;justify-content:space-between;align-items:center;border:1px solid rgba(0,234,255,.25);border-radius:22px;padding:14px 18px;background:rgba(3,8,22,.75);backdrop-filter:blur(12px)}
-.brand{font-size:26px;font-weight:900;letter-spacing:.12em;color:white;text-shadow:0 0 18px var(--cyan)}
-.nav span{color:var(--cyan);font-size:12px;letter-spacing:.18em}
-.hero{position:relative;margin-top:22px;min-height:620px;border:1px solid rgba(0,234,255,.35);border-radius:34px;overflow:hidden;background:linear-gradient(135deg,rgba(7,12,30,.92),rgba(2,4,11,.72));box-shadow:0 0 80px rgba(0,85,255,.24)}
-.hero-bg{position:absolute;inset:0;opacity:.16;background:url("images/app-icon.png") center/520px no-repeat;filter:drop-shadow(0 0 38px var(--blue))}
-.hero-content{position:relative;z-index:2;text-align:center;padding:62px 20px 30px}
-.appicon{width:128px;height:128px;border-radius:32px;box-shadow:0 0 40px rgba(0,234,255,.55),0 0 90px rgba(255,242,0,.22)}
-.badge{display:inline-block;margin-top:18px;padding:6px 14px;border-radius:999px;background:var(--yellow);color:#050505;font-weight:900;letter-spacing:.14em;font-size:12px}
-h1{margin:20px 0 4px;font-size:clamp(54px,11vw,118px);line-height:.9;letter-spacing:.08em;color:white;text-shadow:0 0 20px var(--cyan),0 0 60px var(--blue)}
-.sub{color:var(--cyan);font-weight:800;letter-spacing:.18em}
-.lead{max-width:760px;margin:18px auto;color:#cbd4ef;font-size:17px}
-.characters{position:relative;z-index:2;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;padding:22px}
-.char{position:relative;overflow:hidden;border-radius:26px;min-height:390px;border:1px solid rgba(255,255,255,.12);background:rgba(2,4,11,.64);box-shadow:inset 0 0 44px rgba(0,234,255,.05)}
-.char img{width:100%;height:300px;object-fit:cover;display:block;opacity:.92}
-.char .txt{padding:18px}
-.char h3{margin:0;font-size:30px;letter-spacing:.08em}
-.io h3{color:var(--pink)} .roki h3{color:var(--purple)} .terra h3{color:var(--green)}
-.role{font-size:12px;color:var(--yellow);font-weight:900;letter-spacing:.16em}
-section{margin-top:24px;padding:28px;border-radius:26px;border:1px solid rgba(255,255,255,.09);background:linear-gradient(135deg,rgba(8,14,34,.78),rgba(2,4,11,.68));backdrop-filter:blur(12px);box-shadow:0 20px 60px rgba(0,0,0,.28)}
-h2{margin:0 0 16px;color:var(--green);font-size:28px;text-shadow:0 0 18px rgba(57,255,136,.35)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-.card{padding:20px;border-radius:20px;border:1px solid rgba(0,234,255,.22);background:rgba(2,4,11,.55)}
-.card h3{margin:0 0 8px;color:var(--yellow)}
-.steps{counter-reset:s;list-style:none;padding:0}
-.steps li{counter-increment:s;margin:12px 0;padding:16px 16px 16px 58px;border-radius:16px;border:1px solid rgba(0,234,255,.2);background:rgba(2,4,11,.5);position:relative}
-.steps li:before{content:counter(s);position:absolute;left:16px;top:16px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--cyan);color:#02040b;font-weight:900;box-shadow:0 0 18px var(--cyan)}
-.contact{display:inline-block;color:var(--yellow);font-size:18px;font-weight:900;padding:14px 18px;border-radius:16px;border:1px solid rgba(255,242,0,.35);background:rgba(255,242,0,.1);word-break:break-all}
-footer{text-align:center;color:var(--muted);font-size:13px;margin-top:34px;letter-spacing:.08em}
+
+.wrap{
+  max-width:1200px;
+  margin:auto;
+  padding:28px 18px 80px;
+}
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  border-radius:36px;
+  border:1px solid rgba(0,234,255,.25);
+  background:
+    linear-gradient(135deg,
+    rgba(5,10,30,.95),
+    rgba(2,4,11,.85));
+  padding:60px 24px;
+  text-align:center;
+  box-shadow:
+    0 0 80px rgba(0,85,255,.2),
+    inset 0 0 60px rgba(0,234,255,.03);
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("app-icon.png") center/480px no-repeat;
+  opacity:.08;
+  pointer-events:none;
+}
+
+.appicon{
+  width:120px;
+  height:120px;
+  border-radius:30px;
+  box-shadow:
+    0 0 40px rgba(0,234,255,.5),
+    0 0 80px rgba(255,242,0,.15);
+}
+
+.badge{
+  display:inline-block;
+  margin-top:18px;
+  padding:8px 18px;
+  border-radius:999px;
+  background:var(--yellow);
+  color:#000;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.15em;
+}
+
+h1{
+  margin:18px 0 6px;
+  font-size:clamp(56px,10vw,120px);
+  line-height:.9;
+  letter-spacing:.08em;
+  color:#fff;
+  text-shadow:
+    0 0 25px var(--cyan),
+    0 0 60px var(--blue);
+}
+
+.sub{
+  color:var(--cyan);
+  font-weight:800;
+  letter-spacing:.18em;
+}
+
+.lead{
+  max-width:760px;
+  margin:18px auto 0;
+  color:#d5dbef;
+  font-size:17px;
+}
+
+.characters{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
+  margin-top:36px;
+}
+
+.card{
+  overflow:hidden;
+  border-radius:28px;
+  border:1px solid rgba(255,255,255,.1);
+  background:
+    linear-gradient(135deg,
+    rgba(5,10,25,.9),
+    rgba(2,4,11,.75));
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.35),
+    inset 0 0 40px rgba(255,255,255,.03);
+}
+
+.card img{
+  width:100%;
+  height:340px;
+  object-fit:cover;
+  display:block;
+}
+
+.txt{
+  padding:22px;
+}
+
+.card h3{
+  margin:0;
+  font-size:34px;
+  letter-spacing:.08em;
+}
+
+.io h3{
+  color:var(--pink);
+}
+
+.roki h3{
+  color:var(--purple);
+}
+
+.terra h3{
+  color:var(--green);
+}
+
+.role{
+  font-size:12px;
+  color:var(--yellow);
+  font-weight:900;
+  letter-spacing:.16em;
+  margin-bottom:12px;
+}
+
+section{
+  margin-top:24px;
+  padding:28px;
+  border-radius:28px;
+  border:1px solid rgba(255,255,255,.08);
+  background:
+    linear-gradient(135deg,
+    rgba(8,14,34,.82),
+    rgba(2,4,11,.72));
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.28);
+}
+
+h2{
+  margin:0 0 18px;
+  color:var(--green);
+  font-size:28px;
+  text-shadow:0 0 18px rgba(57,255,136,.25);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;
+}
+
+.box{
+  padding:20px;
+  border-radius:20px;
+  border:1px solid rgba(0,234,255,.2);
+  background:rgba(2,4,11,.45);
+}
+
+.box h3{
+  margin:0 0 8px;
+  color:var(--yellow);
+}
+
+.contact{
+  display:inline-block;
+  margin-top:12px;
+  padding:14px 18px;
+  border-radius:16px;
+  border:1px solid rgba(255,242,0,.3);
+  background:rgba(255,242,0,.08);
+  color:var(--yellow);
+  font-weight:800;
+}
+
+footer{
+  text-align:center;
+  color:#95a0be;
+  margin-top:34px;
+  font-size:13px;
+  letter-spacing:.08em;
+}
 </style>
 </head>
+
 <body>
+
 <main class="wrap">
-  <div class="nav">
-    <div class="brand">SNAPVOX</div>
-    <span>SUPPORT CENTER / OMEGA BRAIN</span>
-  </div>
 
-  <div class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <img class="appicon" src="images/app-icon.png" alt="SNAPVOX app icon">
-      <div class="badge">AUTO-TUNE KEY GUIDE SYSTEM</div>
-      <h1>SNAPVOX</h1>
-      <p class="sub">OFFICIAL SUPPORT</p>
-      <p class="lead">
-        SNAPVOXは、ビートや楽曲のキー／スケールをもとに、Auto-Tune系機材・プラグインで使いやすい設定キーを確認するための音楽制作サポートアプリです。
-      </p>
-    </div>
+<div class="hero">
 
-    <div class="characters">
-      <div class="char io">
-        <img src="images/io.png" alt="Io">
-        <div class="txt"><h3>IO</h3><div class="role">TECH ENGINEER</div><p>キー設定やAuto-Tune周辺のテクニカル情報をサポートします。</p></div>
-      </div>
-      <div class="char roki">
-        <img src="images/roki.png" alt="Roki">
-        <div class="txt"><h3>ROKI</h3><div class="role">SUPPORT GUIDE</div><p>初めて使う人にも分かりやすく、操作をやさしく案内します。</p></div>
-      </div>
-      <div class="char terra">
-        <img src="images/terra.png" alt="Terra">
-        <div class="txt"><h3>TERRA</h3><div class="role">KNOWLEDGE KEEPER</div><p>FAQ、仕様、プライバシー情報を整理して案内します。</p></div>
-      </div>
-    </div>
-  </div>
+<img class="appicon" src="app-icon.png" alt="SNAPVOX">
 
-  <section>
-    <h2>How to Use</h2>
-    <ol class="steps">
-      <li>ビートや楽曲のキー／スケールを確認します。</li>
-      <li>SNAPVOXでキーを選択、または手入力します。</li>
-      <li>表示されたAuto-Tune用の設定キーを確認します。</li>
-      <li>お使いの機材・プラグイン側で設定します。</li>
-      <li>実際の音を聴きながら、楽曲に合うよう微調整してください。</li>
-    </ol>
-  </section>
+<div class="badge">
+AUTO-TUNE KEY GUIDE SYSTEM
+</div>
 
-  <section>
-    <h2>Features</h2>
-    <div class="grid">
-      <div class="card"><h3>KEY CHECK</h3><p>楽曲キーをもとに設定候補を確認。</p></div>
-      <div class="card"><h3>AUTO-TUNE GUIDE</h3><p>Auto-Tune系設定の迷いを減らす補助。</p></div>
-      <div class="card"><h3>NO LOGIN</h3><p>アカウント登録なしで使用可能。</p></div>
-      <div class="card"><h3>NO AI / NO MEDIA</h3><p>AI解析なし。音声・画像も収集しません。</p></div>
-    </div>
-  </section>
+<h1>SNAPVOX</h1>
 
-  <section>
-    <h2>FAQ</h2>
-    <div class="grid">
-      <div class="card"><h3>ログインは必要ですか？</h3><p>いいえ。ログイン不要です。</p></div>
-      <div class="card"><h3>AIを使っていますか？</h3><p>いいえ。AI解析・生成は行いません。</p></div>
-      <div class="card"><h3>音声や画像を扱いますか？</h3><p>いいえ。音声や画像を収集・保存・送信しません。</p></div>
-      <div class="card"><h3>キーが合わない時は？</h3><p>元の楽曲キー、スケール、機材側の表記差を確認してください。</p></div>
-    </div>
-  </section>
+<div class="sub">
+OFFICIAL SUPPORT
+</div>
 
-  <section>
-    <h2>Contact</h2>
-    <p>不具合、操作方法、表示内容に関するお問い合わせはこちらまでお願いします。</p>
-    <p class="contact">ここに作ったメールアドレスを書く</p>
-  </section>
+<p class="lead">
+SNAPVOXは、ビートや楽曲のキー／スケールをもとに、
+Auto-Tune系機材・プラグインで使いやすい設定キーを確認するための
+音楽制作サポートアプリです。
+</p>
 
-  <section>
-    <h2>Privacy Policy</h2>
-    <p>SNAPVOXは、個人情報を収集・保存・第三者提供しません。</p>
-    <p>音声、画像、位置情報、連絡先、アカウント情報を取得することはありません。</p>
-  </section>
+<div class="characters">
 
-  <footer>© OMEGA BRAIN / SNAPVOX</footer>
+<div class="card io">
+<img src="io.png" alt="Io">
+<div class="txt">
+<h3>IO</h3>
+<div class="role">CODE ENGINEER</div>
+<p>
+Auto-Tune設定や技術面をサポート。
+システム構築と実装を担当。
+</p>
+</div>
+</div>
+
+<div class="card roki">
+<img src="roki.png" alt="Roki">
+<div class="txt">
+<h3>ROKI</h3>
+<div class="role">SUPPORT GUIDE</div>
+<p>
+ユーザーサポートとガイド担当。
+迷わず使えるように案内します。
+</p>
+</div>
+</div>
+
+<div class="card terra">
+<img src="terra.png" alt="Terra">
+<div class="txt">
+<h3>TERRA</h3>
+<div class="role">KNOWLEDGE KEEPER</div>
+<p>
+仕様、FAQ、構成情報を整理。
+知識管理と記録を担当。
+</p>
+</div>
+</div>
+
+</div>
+</div>
+
+<section>
+<h2>Features</h2>
+
+<div class="grid">
+
+<div class="box">
+<h3>KEY CHECK</h3>
+<p>楽曲キーをもとに設定候補を確認。</p>
+</div>
+
+<div class="box">
+<h3>AUTO-TUNE GUIDE</h3>
+<p>Auto-Tune系設定の迷いを減らす補助。</p>
+</div>
+
+<div class="box">
+<h3>NO LOGIN</h3>
+<p>アカウント登録なしで使用可能。</p>
+</div>
+
+<div class="box">
+<h3>NO AI / NO MEDIA</h3>
+<p>音声・画像の収集は行いません。</p>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>FAQ</h2>
+
+<div class="grid">
+
+<div class="box">
+<h3>ログインは必要？</h3>
+<p>いいえ。ログイン不要です。</p>
+</div>
+
+<div class="box">
+<h3>AIを使用していますか？</h3>
+<p>いいえ。AI解析は行っていません。</p>
+</div>
+
+<div class="box">
+<h3>音声を保存しますか？</h3>
+<p>いいえ。保存・送信しません。</p>
+</div>
+
+<div class="box">
+<h3>設定が合わない場合は？</h3>
+<p>元キーやスケール設定を再確認してください。</p>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>Contact</h2>
+
+<p>
+不具合やお問い合わせはこちらまでお願いします。
+</p>
+
+<div class="contact">
+support@snapvox.app
+</div>
+
+</section>
+
+<section>
+<h2>Privacy Policy</h2>
+
+<p>
+SNAPVOXは個人情報を収集・保存・第三者提供しません。
+</p>
+
+<p>
+音声、画像、位置情報、連絡先情報を取得することはありません。
+</p>
+
+</section>
+
+<footer>
+© OMEGA BRAIN / SNAPVOX
+</footer>
+
 </main>
+
 </body>
 </html>
