@@ -7,528 +7,265 @@
 
 <style>
 :root{
-  --bg:#03040a;
-  --cyan:#00eaff;
+  --bg:#02040b;
   --blue:#0055ff;
+  --cyan:#00eaff;
   --yellow:#fff200;
-  --text:#f7f8ff;
-  --muted:#b7c0dc;
+  --green:#00ff88;
+  --text:#f8fbff;
+  --muted:#b9c5e6;
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
   margin:0;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   color:var(--text);
-
   background:
-    radial-gradient(circle at top left,rgba(0,85,255,.38),transparent 32%),
-    radial-gradient(circle at top right,rgba(0,234,255,.16),transparent 28%),
-    linear-gradient(rgba(0,234,255,.035) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(0,234,255,.035) 1px,transparent 1px),
-    #03040a;
-
-  background-size:
-    auto,
-    auto,
-    44px 44px,
-    44px 44px;
-
+    radial-gradient(circle at 50% 0%,rgba(0,85,255,.55),transparent 34%),
+    radial-gradient(circle at 80% 15%,rgba(0,255,136,.18),transparent 26%),
+    linear-gradient(rgba(0,234,255,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,234,255,.04) 1px,transparent 1px),
+    #02040b;
+  background-size:auto,auto,46px 46px,46px 46px;
   line-height:1.8;
 }
 
 .wrap{
-  max-width:1200px;
+  max-width:1160px;
   margin:auto;
-  padding:28px 18px 80px;
+  padding:32px 18px 80px;
 }
 
 .hero{
   position:relative;
   overflow:hidden;
-  border-radius:36px;
-  border:1px solid rgba(0,234,255,.18);
-
-  background:
-    linear-gradient(135deg,
-    rgba(5,10,30,.92),
-    rgba(2,4,12,.82));
-
-  padding:60px 24px 42px;
+  border-radius:38px;
+  border:1px solid rgba(0,234,255,.26);
+  background:linear-gradient(135deg,rgba(4,10,28,.96),rgba(1,3,10,.86));
+  padding:54px 24px 46px;
   text-align:center;
+  box-shadow:0 0 90px rgba(0,85,255,.25),inset 0 0 90px rgba(0,234,255,.04);
+}
 
+.big-icon{
+  width:min(360px,72vw);
+  border-radius:72px;
+  display:block;
+  margin:0 auto 24px;
   box-shadow:
-    0 0 80px rgba(0,85,255,.18),
-    inset 0 0 80px rgba(0,234,255,.03);
-}
-
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-
-  background:
-    url("app-icon.png") center 120px / 540px no-repeat;
-
-  opacity:.08;
-
-  filter:
-    drop-shadow(0 0 30px var(--cyan));
-
-  pointer-events:none;
-}
-
-.hero>*{
-  position:relative;
-  z-index:1;
-}
-
-.appicon{
-  width:120px;
-  height:120px;
-  border-radius:30px;
-
-  box-shadow:
-    0 0 42px rgba(0,234,255,.45),
-    0 0 90px rgba(255,242,0,.12);
+    0 0 45px rgba(0,234,255,.7),
+    0 0 100px rgba(0,85,255,.5),
+    0 0 120px rgba(255,242,0,.16);
 }
 
 .badge{
   display:inline-block;
-
-  margin-top:18px;
-
   padding:8px 18px;
-
   border-radius:999px;
-
   background:var(--yellow);
-
   color:#000;
-
-  font-size:12px;
   font-weight:900;
-  letter-spacing:.15em;
+  font-size:12px;
+  letter-spacing:.16em;
 }
 
 h1{
   margin:18px 0 6px;
-
-  font-size:clamp(60px,11vw,126px);
-
+  font-size:clamp(58px,11vw,122px);
   line-height:.9;
-
-  letter-spacing:.09em;
-
+  letter-spacing:.1em;
   color:#fff;
-
-  text-shadow:
-    0 0 24px var(--cyan),
-    0 0 60px var(--blue);
+  text-shadow:0 0 24px var(--cyan),0 0 70px var(--blue);
 }
 
 .sub{
   color:var(--cyan);
-
   font-weight:900;
-
-  letter-spacing:.2em;
+  letter-spacing:.22em;
 }
 
 .lead{
   max-width:760px;
-
-  margin:18px auto 0;
-
-  color:#d6def7;
-
+  margin:20px auto 0;
+  color:#dce6ff;
   font-size:17px;
 }
 
-.tech-grid{
-  margin-top:40px;
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(auto-fit,minmax(240px,1fr));
-
-  gap:18px;
-}
-
-.tech-card{
+.frog{
+  width:130px;
+  height:86px;
+  margin:30px auto 0;
   position:relative;
-
-  overflow:hidden;
-
-  border-radius:26px;
-
-  border:1px solid rgba(0,234,255,.14);
-
-  background:
-    linear-gradient(135deg,
-    rgba(4,8,22,.88),
-    rgba(2,4,11,.72));
-
-  padding:26px;
-
-  box-shadow:
-    0 20px 60px rgba(0,0,0,.34),
-    inset 0 0 40px rgba(0,234,255,.025);
+  border:4px solid var(--green);
+  border-radius:55% 55% 48% 48%;
+  box-shadow:0 0 26px var(--green), inset 0 0 22px rgba(0,255,136,.18);
 }
 
-.tech-card::before{
+.frog:before,.frog:after{
   content:"";
-
   position:absolute;
-
-  inset:0;
-
-  background:
-    linear-gradient(90deg,
-    transparent,
-    rgba(0,234,255,.04),
-    transparent);
-
-  transform:translateX(-100%);
-  animation:scan 6s linear infinite;
+  width:34px;
+  height:34px;
+  top:-20px;
+  border:4px solid var(--green);
+  border-radius:50%;
+  background:#02040b;
+  box-shadow:0 0 18px var(--green);
 }
 
-@keyframes scan{
-  to{
-    transform:translateX(100%);
-  }
+.frog:before{left:18px}
+.frog:after{right:18px}
+
+.eye{
+  position:absolute;
+  width:8px;
+  height:8px;
+  background:var(--green);
+  border-radius:50%;
+  top:18px;
+  box-shadow:0 0 12px var(--green);
 }
+.eye.l{left:40px}
+.eye.r{right:40px}
 
-.tech-title{
-  color:var(--yellow);
-
-  font-size:14px;
-
-  font-weight:900;
-
-  letter-spacing:.18em;
-
-  margin-bottom:10px;
-}
-
-.tech-big{
-  font-size:42px;
-
-  font-weight:900;
-
-  color:white;
-
-  text-shadow:
-    0 0 18px rgba(0,234,255,.35);
-}
-
-.tech-small{
-  color:var(--muted);
-
-  font-size:14px;
+.mouth{
+  position:absolute;
+  left:32px;
+  right:32px;
+  bottom:22px;
+  height:18px;
+  border-bottom:4px solid var(--green);
+  border-radius:0 0 80px 80px;
+  box-shadow:0 8px 18px rgba(0,255,136,.35);
 }
 
 section{
   margin-top:24px;
-
   padding:30px;
-
   border-radius:30px;
-
-  border:1px solid rgba(255,255,255,.08);
-
-  background:
-    linear-gradient(135deg,
-    rgba(8,14,34,.82),
-    rgba(2,4,11,.74));
-
-  box-shadow:
-    0 22px 70px rgba(0,0,0,.28);
+  border:1px solid rgba(255,255,255,.09);
+  background:linear-gradient(135deg,rgba(8,14,34,.82),rgba(2,4,11,.72));
+  box-shadow:0 22px 70px rgba(0,0,0,.3);
 }
 
 h2{
   margin:0 0 18px;
-
   color:var(--cyan);
-
   font-size:30px;
-
-  text-shadow:
-    0 0 18px rgba(0,234,255,.28);
+  text-shadow:0 0 18px rgba(0,234,255,.3);
 }
 
 .grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(auto-fit,minmax(240px,1fr));
-
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:16px;
 }
 
 .box{
-  border-radius:22px;
-
-  border:1px solid rgba(0,234,255,.16);
-
-  background:
-    rgba(0,0,0,.28);
-
   padding:22px;
+  border-radius:22px;
+  border:1px solid rgba(0,234,255,.18);
+  background:rgba(0,0,0,.34);
 }
 
 .box h3{
   margin:0 0 8px;
-
   color:var(--yellow);
 }
 
 .contact{
   display:inline-block;
-
   margin-top:12px;
-
   padding:14px 18px;
-
   border-radius:16px;
-
   border:1px solid rgba(255,242,0,.35);
-
-  background:
-    rgba(255,242,0,.08);
-
+  background:rgba(255,242,0,.08);
   color:var(--yellow);
-
   font-weight:900;
+  word-break:break-all;
 }
 
 footer{
   text-align:center;
-
   margin-top:36px;
-
   color:#98a3c5;
-
   font-size:13px;
-
   letter-spacing:.08em;
 }
 </style>
 </head>
 
 <body>
-
 <main class="wrap">
 
 <div class="hero">
+  <img class="big-icon" src="app-icon.png" alt="SNAPVOX app icon">
 
-<img class="appicon" src="app-icon.png" alt="SNAPVOX">
+  <div class="badge">AUTO-TUNE KEY GUIDE SYSTEM</div>
 
-<div class="badge">
-AUTO-TUNE KEY GUIDE SYSTEM
-</div>
+  <h1>SNAPVOX</h1>
 
-<h1>SNAPVOX</h1>
+  <div class="sub">OFFICIAL SUPPORT / OMEGA BRAIN</div>
 
-<div class="sub">
-OFFICIAL SUPPORT / OMEGA BRAIN
-</div>
+  <p class="lead">
+    SNAPVOXは、ビートや楽曲のキー／スケールをもとに、
+    Auto-Tune系機材・プラグインで使いやすい設定キーを確認するための
+    音楽制作サポートアプリです。
+  </p>
 
-<p class="lead">
-SNAPVOXは、ビートや楽曲のキー／スケールをもとに、
-Auto-Tune系機材・プラグインで使いやすい設定キーを確認するための
-音楽制作サポートアプリです。
-</p>
-
-<div class="tech-grid">
-
-<div class="tech-card">
-<div class="tech-title">SYSTEM STATUS</div>
-<div class="tech-big">ONLINE</div>
-<div class="tech-small">
-All systems operational
-</div>
-</div>
-
-<div class="tech-card">
-<div class="tech-title">SUPPORTED</div>
-<div class="tech-big">AUTO-TUNE</div>
-<div class="tech-small">
-Pitch guide support system
-</div>
-</div>
-
-<div class="tech-card">
-<div class="tech-title">NO LOGIN</div>
-<div class="tech-big">PRIVATE</div>
-<div class="tech-small">
-No account registration required
-</div>
-</div>
-
-<div class="tech-card">
-<div class="tech-title">SECURE</div>
-<div class="tech-big">NO DATA</div>
-<div class="tech-small">
-No audio or image collection
-</div>
-</div>
-
-</div>
-
+  <div class="frog">
+    <span class="eye l"></span>
+    <span class="eye r"></span>
+    <span class="mouth"></span>
+  </div>
 </div>
 
 <section>
-
 <h2>HOW TO USE</h2>
-
 <div class="grid">
-
-<div class="box">
-<h3>01 KEY CHECK</h3>
-<p>
-ビートや楽曲のキー／スケールを確認します。
-</p>
+  <div class="box"><h3>01 KEY CHECK</h3><p>ビートや楽曲のキー／スケールを確認します。</p></div>
+  <div class="box"><h3>02 SELECT</h3><p>SNAPVOXでキーを選択、または手入力します。</p></div>
+  <div class="box"><h3>03 SETUP</h3><p>表示されたAuto-Tune用の設定キーを確認します。</p></div>
+  <div class="box"><h3>04 ADJUST</h3><p>実際の音を聴きながら微調整してください。</p></div>
 </div>
-
-<div class="box">
-<h3>02 SELECT</h3>
-<p>
-SNAPVOXでキーを選択、または手入力します。
-</p>
-</div>
-
-<div class="box">
-<h3>03 SETUP</h3>
-<p>
-表示されたAuto-Tune用の設定キーを確認します。
-</p>
-</div>
-
-<div class="box">
-<h3>04 ADJUST</h3>
-<p>
-実際の音を聴きながら微調整してください。
-</p>
-</div>
-
-</div>
-
 </section>
 
 <section>
-
 <h2>FEATURES</h2>
-
 <div class="grid">
-
-<div class="box">
-<h3>KEY GUIDE</h3>
-<p>
-楽曲キーをもとに設定候補を確認。
-</p>
+  <div class="box"><h3>KEY GUIDE</h3><p>楽曲キーをもとに設定候補を確認。</p></div>
+  <div class="box"><h3>FAST CHECK</h3><p>素早くキー設定を確認可能。</p></div>
+  <div class="box"><h3>NO LOGIN</h3><p>アカウント登録不要。</p></div>
+  <div class="box"><h3>NO AI / NO MEDIA</h3><p>音声・画像の収集は行いません。</p></div>
 </div>
-
-<div class="box">
-<h3>FAST CHECK</h3>
-<p>
-素早くキー設定を確認可能。
-</p>
-</div>
-
-<div class="box">
-<h3>NO LOGIN</h3>
-<p>
-アカウント登録不要。
-</p>
-</div>
-
-<div class="box">
-<h3>NO AI / NO MEDIA</h3>
-<p>
-音声・画像の収集は行いません。
-</p>
-</div>
-
-</div>
-
 </section>
 
 <section>
-
 <h2>FAQ</h2>
-
 <div class="grid">
-
-<div class="box">
-<h3>ログインは必要？</h3>
-<p>
-いいえ。ログイン不要です。
-</p>
+  <div class="box"><h3>ログインは必要？</h3><p>いいえ。ログイン不要です。</p></div>
+  <div class="box"><h3>AIを使っていますか？</h3><p>いいえ。AI解析・生成は行っていません。</p></div>
+  <div class="box"><h3>音声を保存しますか？</h3><p>いいえ。保存・送信しません。</p></div>
+  <div class="box"><h3>設定が合わない場合は？</h3><p>元キーやスケール設定をご確認ください。</p></div>
 </div>
-
-<div class="box">
-<h3>AIを使っていますか？</h3>
-<p>
-いいえ。AI解析・生成は行っていません。
-</p>
-</div>
-
-<div class="box">
-<h3>音声を保存しますか？</h3>
-<p>
-いいえ。保存・送信しません。
-</p>
-</div>
-
-<div class="box">
-<h3>設定が合わない場合は？</h3>
-<p>
-元キーやスケール設定をご確認ください。
-</p>
-</div>
-
-</div>
-
 </section>
 
 <section>
-
 <h2>CONTACT</h2>
-
-<p>
-不具合・お問い合わせはこちらまでお願いします。
-</p>
-
-<div class="contact">
-support@snapvox.app
-</div>
-
+<p>不具合・お問い合わせはこちらまでお願いします。</p>
+<div class="contact">support@snapvox.app</div>
 </section>
 
 <section>
-
 <h2>PRIVACY POLICY</h2>
-
-<p>
-SNAPVOXは個人情報を収集・保存・第三者提供しません。
-</p>
-
-<p>
-音声、画像、位置情報、連絡先情報を取得することはありません。
-</p>
-
+<p>SNAPVOXは個人情報を収集・保存・第三者提供しません。</p>
+<p>音声、画像、位置情報、連絡先情報を取得することはありません。</p>
 </section>
 
-<footer>
-© OMEGA BRAIN / SNAPVOX
-</footer>
+<footer>© OMEGA BRAIN / SNAPVOX</footer>
 
 </main>
-
 </body>
 </html>
