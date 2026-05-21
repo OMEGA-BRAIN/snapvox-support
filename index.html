@@ -1,815 +1,135 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SNAPVOX Support | OMEGA BRAIN</title>
-
-  <meta name="description" content="SNAPVOX support page, usage guide, FAQ and privacy policy." />
-
-  <style>
-    :root{
-      --bg:#02030a;
-      --blue:#0055ff;
-      --cyan:#00e5ff;
-      --green:#39ff88;
-      --yellow:#fff200;
-      --pink:#ff2bd6;
-      --text:#f6f8ff;
-      --muted:#9aa7c7;
-    }
-
-    *{
-      box-sizing:border-box;
-    }
-
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      color:var(--text);
-
-      background:
-        linear-gradient(rgba(0,229,255,.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,229,255,.04) 1px, transparent 1px),
-        radial-gradient(circle at 20% 0%, rgba(0,85,255,.55), transparent 28%),
-        radial-gradient(circle at 85% 18%, rgba(255,43,214,.25), transparent 24%),
-        radial-gradient(circle at 60% 90%, rgba(57,255,136,.18), transparent 30%),
-        var(--bg);
-
-      background-size:48px 48px,48px 48px,auto,auto,auto,auto;
-
-      line-height:1.8;
-      overflow-x:hidden;
-    }
-
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(255,255,255,.05),
-          transparent 18%,
-          transparent 80%,
-          rgba(0,0,0,.45)
-        );
-
-      mix-blend-mode:screen;
-    }
-
-    .wrap{
-      max-width:1120px;
-      margin:auto;
-      padding:54px 18px 90px;
-    }
-
-    .hero{
-      position:relative;
-      overflow:hidden;
-
-      min-height:460px;
-
-      border-radius:34px;
-
-      border:1px solid rgba(0,229,255,.35);
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(8,14,34,.92),
-          rgba(2,3,10,.72)
-        );
-
-      box-shadow:
-        0 0 70px rgba(0,85,255,.26),
-        inset 0 0 60px rgba(0,229,255,.06);
-
-      padding:44px 30px;
-    }
-
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:-40%;
-
-      background:
-        conic-gradient(
-          from 90deg,
-          transparent,
-          rgba(0,229,255,.13),
-          transparent,
-          rgba(255,242,0,.1),
-          transparent
-        );
-
-      animation:spin 16s linear infinite;
-    }
-
-    @keyframes spin{
-      to{
-        transform:rotate(360deg);
-      }
-    }
-
-    .hero::after{
-      content:"SNAPVOX";
-
-      position:absolute;
-      right:-28px;
-      bottom:-52px;
-
-      font-size:120px;
-      font-weight:900;
-      letter-spacing:.08em;
-
-      color:transparent;
-
-      -webkit-text-stroke:1px rgba(0,229,255,.18);
-    }
-
-    .hero-inner{
-      position:relative;
-      z-index:1;
-      max-width:760px;
-    }
-
-    .badge{
-      display:inline-flex;
-      align-items:center;
-
-      padding:7px 13px;
-
-      border-radius:999px;
-
-      background:var(--yellow);
-      color:#070707;
-
-      font-size:12px;
-      font-weight:900;
-      letter-spacing:.12em;
-
-      box-shadow:0 0 26px rgba(255,242,0,.35);
-    }
-
-    h1{
-      margin:18px 0 0;
-
-      font-size:clamp(52px,11vw,112px);
-      line-height:.9;
-
-      letter-spacing:.06em;
-
-      color:var(--cyan);
-
-      text-shadow:
-        0 0 12px rgba(0,229,255,.9),
-        0 0 42px rgba(0,85,255,.75);
-    }
-
-    .glitch{
-      position:relative;
-      display:inline-block;
-    }
-
-    .glitch::before,
-    .glitch::after{
-      content:"SNAPVOX";
-
-      position:absolute;
-      inset:0;
-
-      opacity:.55;
-      pointer-events:none;
-    }
-
-    .glitch::before{
-      color:var(--pink);
-
-      transform:translate(3px,-2px);
-
-      clip-path:polygon(0 0,100% 0,100% 42%,0 42%);
-    }
-
-    .glitch::after{
-      color:var(--green);
-
-      transform:translate(-3px,2px);
-
-      clip-path:polygon(0 58%,100% 58%,100% 100%,0 100%);
-    }
-
-    .sub{
-      margin:18px 0 0;
-
-      font-size:20px;
-      font-weight:900;
-      letter-spacing:.04em;
-
-      color:var(--yellow);
-    }
-
-    .lead{
-      margin-top:16px;
-
-      max-width:720px;
-
-      color:#c8d2ef;
-      font-size:17px;
-    }
-
-    .panel-row{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:14px;
-
-      margin-top:22px;
-    }
-
-    .mini{
-      border-radius:18px;
-
-      padding:14px 16px;
-
-      border:1px solid rgba(0,229,255,.22);
-
-      background:rgba(2,3,10,.48);
-
-      color:var(--muted);
-
-      backdrop-filter:blur(10px);
-    }
-
-    .mini strong{
-      display:block;
-
-      color:var(--green);
-
-      font-size:13px;
-      letter-spacing:.12em;
-    }
-
-    section{
-      position:relative;
-
-      margin-top:26px;
-
-      padding:28px;
-
-      border-radius:26px;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(8,14,34,.74),
-          rgba(3,7,18,.62)
-        );
-
-      border:1px solid rgba(255,255,255,.08);
-
-      box-shadow:0 18px 60px rgba(0,0,0,.25);
-
-      backdrop-filter:blur(12px);
-
-      overflow:hidden;
-    }
-
-    section::before{
-      content:"";
-
-      position:absolute;
-      left:0;
-      top:0;
-
-      width:5px;
-      height:100%;
-
-      background:
-        linear-gradient(
-          var(--cyan),
-          var(--yellow),
-          var(--green)
-        );
-
-      box-shadow:0 0 22px rgba(0,229,255,.8);
-    }
-
-    h2{
-      margin:0 0 16px;
-
-      font-size:26px;
-
-      color:var(--green);
-
-      text-shadow:0 0 18px rgba(57,255,136,.35);
-    }
-
-    h3{
-      margin:0 0 8px;
-
-      color:var(--yellow);
-    }
-
-    .steps{
-      counter-reset:step;
-      list-style:none;
-      padding:0;
-    }
-
-    .steps li{
-      counter-increment:step;
-
-      position:relative;
-
-      margin:12px 0;
-
-      padding:16px 16px 16px 58px;
-
-      border-radius:16px;
-
-      border:1px solid rgba(0,229,255,.18);
-
-      background:rgba(2,3,10,.42);
-    }
-
-    .steps li::before{
-      content:counter(step);
-
-      position:absolute;
-      left:16px;
-      top:16px;
-
-      width:28px;
-      height:28px;
-
-      display:grid;
-      place-items:center;
-
-      border-radius:50%;
-
-      background:var(--cyan);
-
-      color:#02030a;
-
-      font-weight:900;
-
-      box-shadow:0 0 18px rgba(0,229,255,.7);
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(245px,1fr));
-      gap:16px;
-    }
-
-    .card{
-      position:relative;
-
-      min-height:150px;
-
-      padding:20px;
-
-      border-radius:20px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(0,85,255,.16),
-          rgba(2,3,10,.58)
-        );
-
-      border:1px solid rgba(0,229,255,.24);
-
-      box-shadow:
-        inset 0 0 32px rgba(0,229,255,.04);
-    }
-
-    .card::after{
-      content:"";
-
-      position:absolute;
-      right:16px;
-      top:16px;
-
-      width:34px;
-      height:3px;
-
-      background:var(--yellow);
-
-      box-shadow:0 0 14px rgba(255,242,0,.7);
-    }
-
-    .character-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:18px;
-    }
-
-    .character-card{
-      position:relative;
-      overflow:hidden;
-
-      border-radius:24px;
-
-      padding:24px;
-
-      min-height:260px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(0,85,255,.18),
-          rgba(3,7,18,.88)
-        );
-
-      border:1px solid rgba(0,229,255,.24);
-
-      box-shadow:
-        inset 0 0 38px rgba(0,229,255,.05),
-        0 0 28px rgba(0,0,0,.28);
-    }
-
-    .character-card::before{
-      content:"";
-
-      position:absolute;
-
-      width:180px;
-      height:180px;
-
-      border-radius:50%;
-
-      right:-40px;
-      top:-40px;
-
-      opacity:.28;
-
-      filter:blur(12px);
-    }
-
-    .loki::before{
-      background:#b26cff;
-    }
-
-    .io::before{
-      background:#ff4fd8;
-    }
-
-    .terra::before{
-      background:#39ff88;
-    }
-
-    .avatar{
-      width:82px;
-      height:82px;
-
-      border-radius:50%;
-
-      display:flex;
-      align-items:center;
-      justify-content:center;
-
-      font-size:38px;
-
-      margin-bottom:16px;
-
-      border:1px solid rgba(255,255,255,.14);
-
-      backdrop-filter:blur(10px);
-
-      box-shadow:0 0 24px rgba(255,255,255,.08);
-    }
-
-    .loki .avatar{
-      background:rgba(178,108,255,.18);
-    }
-
-    .io .avatar{
-      background:rgba(255,79,216,.18);
-    }
-
-    .terra .avatar{
-      background:rgba(57,255,136,.18);
-    }
-
-    .character-name{
-      font-size:26px;
-      font-weight:900;
-      letter-spacing:.04em;
-
-      margin-bottom:8px;
-    }
-
-    .character-role{
-      color:var(--yellow);
-
-      font-size:13px;
-      font-weight:800;
-      letter-spacing:.12em;
-
-      margin-bottom:14px;
-    }
-
-    .character-text{
-      color:#d8def0;
-      font-size:15px;
-    }
-
-    .contact{
-      display:inline-block;
-
-      padding:14px 18px;
-
-      border-radius:16px;
-
-      background:rgba(255,242,0,.12);
-
-      color:var(--yellow);
-
-      border:1px solid rgba(255,242,0,.38);
-
-      font-weight:900;
-
-      word-break:break-all;
-
-      box-shadow:0 0 24px rgba(255,242,0,.1);
-    }
-
-    .note{
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    footer{
-      margin-top:36px;
-
-      text-align:center;
-
-      color:var(--muted);
-
-      font-size:13px;
-      letter-spacing:.06em;
-    }
-
-    @media(max-width:640px){
-
-      .hero{
-        min-height:auto;
-        padding:34px 22px;
-      }
-
-      section{
-        padding:24px 20px;
-      }
-
-      .hero::after{
-        font-size:64px;
-        bottom:-28px;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SNAPVOX Support | OMEGA BRAIN</title>
+<style>
+:root{
+  --bg:#02040b;--cyan:#00eaff;--blue:#0055ff;--pink:#ff4fd8;
+  --purple:#b26cff;--green:#39ff88;--yellow:#fff200;
+  --text:#f7f8ff;--muted:#aab3cf;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text);line-height:1.8;background:
+  linear-gradient(rgba(0,234,255,.045) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(0,234,255,.045) 1px,transparent 1px),
+  radial-gradient(circle at 15% 0%,rgba(0,85,255,.55),transparent 30%),
+  radial-gradient(circle at 85% 20%,rgba(255,79,216,.25),transparent 28%),
+  #02040b;background-size:44px 44px,44px 44px,auto,auto,auto;
+}
+.wrap{max-width:1180px;margin:auto;padding:34px 18px 80px}
+.nav{display:flex;justify-content:space-between;align-items:center;border:1px solid rgba(0,234,255,.25);border-radius:22px;padding:14px 18px;background:rgba(3,8,22,.75);backdrop-filter:blur(12px)}
+.brand{font-size:26px;font-weight:900;letter-spacing:.12em;color:white;text-shadow:0 0 18px var(--cyan)}
+.nav span{color:var(--cyan);font-size:12px;letter-spacing:.18em}
+.hero{position:relative;margin-top:22px;min-height:620px;border:1px solid rgba(0,234,255,.35);border-radius:34px;overflow:hidden;background:linear-gradient(135deg,rgba(7,12,30,.92),rgba(2,4,11,.72));box-shadow:0 0 80px rgba(0,85,255,.24)}
+.hero-bg{position:absolute;inset:0;opacity:.16;background:url("images/app-icon.png") center/520px no-repeat;filter:drop-shadow(0 0 38px var(--blue))}
+.hero-content{position:relative;z-index:2;text-align:center;padding:62px 20px 30px}
+.appicon{width:128px;height:128px;border-radius:32px;box-shadow:0 0 40px rgba(0,234,255,.55),0 0 90px rgba(255,242,0,.22)}
+.badge{display:inline-block;margin-top:18px;padding:6px 14px;border-radius:999px;background:var(--yellow);color:#050505;font-weight:900;letter-spacing:.14em;font-size:12px}
+h1{margin:20px 0 4px;font-size:clamp(54px,11vw,118px);line-height:.9;letter-spacing:.08em;color:white;text-shadow:0 0 20px var(--cyan),0 0 60px var(--blue)}
+.sub{color:var(--cyan);font-weight:800;letter-spacing:.18em}
+.lead{max-width:760px;margin:18px auto;color:#cbd4ef;font-size:17px}
+.characters{position:relative;z-index:2;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;padding:22px}
+.char{position:relative;overflow:hidden;border-radius:26px;min-height:390px;border:1px solid rgba(255,255,255,.12);background:rgba(2,4,11,.64);box-shadow:inset 0 0 44px rgba(0,234,255,.05)}
+.char img{width:100%;height:300px;object-fit:cover;display:block;opacity:.92}
+.char .txt{padding:18px}
+.char h3{margin:0;font-size:30px;letter-spacing:.08em}
+.io h3{color:var(--pink)} .roki h3{color:var(--purple)} .terra h3{color:var(--green)}
+.role{font-size:12px;color:var(--yellow);font-weight:900;letter-spacing:.16em}
+section{margin-top:24px;padding:28px;border-radius:26px;border:1px solid rgba(255,255,255,.09);background:linear-gradient(135deg,rgba(8,14,34,.78),rgba(2,4,11,.68));backdrop-filter:blur(12px);box-shadow:0 20px 60px rgba(0,0,0,.28)}
+h2{margin:0 0 16px;color:var(--green);font-size:28px;text-shadow:0 0 18px rgba(57,255,136,.35)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{padding:20px;border-radius:20px;border:1px solid rgba(0,234,255,.22);background:rgba(2,4,11,.55)}
+.card h3{margin:0 0 8px;color:var(--yellow)}
+.steps{counter-reset:s;list-style:none;padding:0}
+.steps li{counter-increment:s;margin:12px 0;padding:16px 16px 16px 58px;border-radius:16px;border:1px solid rgba(0,234,255,.2);background:rgba(2,4,11,.5);position:relative}
+.steps li:before{content:counter(s);position:absolute;left:16px;top:16px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--cyan);color:#02040b;font-weight:900;box-shadow:0 0 18px var(--cyan)}
+.contact{display:inline-block;color:var(--yellow);font-size:18px;font-weight:900;padding:14px 18px;border-radius:16px;border:1px solid rgba(255,242,0,.35);background:rgba(255,242,0,.1);word-break:break-all}
+footer{text-align:center;color:var(--muted);font-size:13px;margin-top:34px;letter-spacing:.08em}
+</style>
 </head>
-
 <body>
+<main class="wrap">
+  <div class="nav">
+    <div class="brand">SNAPVOX</div>
+    <span>SUPPORT CENTER / OMEGA BRAIN</span>
+  </div>
 
-  <main class="wrap">
-
-    <div class="hero">
-
-      <div class="hero-inner">
-
-        <span class="badge">
-          AUTOTUNE GUIDE / SUPPORT
-        </span>
-
-        <h1>
-          <span class="glitch">
-            SNAPVOX
-          </span>
-        </h1>
-
-        <p class="sub">
-          UNDERGROUND KEY SYSTEM FOR VOCAL CREATORS
-        </p>
-
-        <p class="lead">
-          SNAPVOXは、ビートや楽曲のキー／スケールをもとに、
-          Auto-Tune系機材・プラグインで使いやすい設定キーを確認するための
-          音楽制作サポートアプリです。
-        </p>
-
-        <div class="panel-row">
-
-          <div class="mini">
-            <strong>NO LOGIN</strong>
-            アカウント登録なし
-          </div>
-
-          <div class="mini">
-            <strong>NO AI</strong>
-            AI解析・生成なし
-          </div>
-
-          <div class="mini">
-            <strong>NO MEDIA ACCESS</strong>
-            音声・画像を収集しません
-          </div>
-
-        </div>
-
-      </div>
-
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <img class="appicon" src="images/app-icon.png" alt="SNAPVOX app icon">
+      <div class="badge">AUTO-TUNE KEY GUIDE SYSTEM</div>
+      <h1>SNAPVOX</h1>
+      <p class="sub">OFFICIAL SUPPORT</p>
+      <p class="lead">
+        SNAPVOXは、ビートや楽曲のキー／スケールをもとに、Auto-Tune系機材・プラグインで使いやすい設定キーを確認するための音楽制作サポートアプリです。
+      </p>
     </div>
 
-    <section>
-
-      <h2>How to Use</h2>
-
-      <ol class="steps">
-        <li>ビートや楽曲のキー／スケールを確認します。</li>
-        <li>SNAPVOXでキーを選択、または手入力します。</li>
-        <li>表示されたAuto-Tune用の設定キーを確認します。</li>
-        <li>機材・プラグイン側で設定します。</li>
-        <li>実際の音を聴きながら微調整してください。</li>
-      </ol>
-
-      <p class="note">
-        ※ 機材やプラグインによってキー表記が異なる場合があります。
-      </p>
-
-    </section>
-
-    <section>
-
-      <h2>SNAPVOX Guides</h2>
-
-      <div class="character-grid">
-
-        <div class="character-card loki">
-
-          <div class="avatar">🌙</div>
-
-          <div class="character-name">
-            Loki
-          </div>
-
-          <div class="character-role">
-            SUPPORT GUIDE
-          </div>
-
-          <div class="character-text">
-            ロキはSNAPVOXのガイド役。
-            初めて使う人にも分かりやすく、
-            やさしく操作をサポートします。
-          </div>
-
-        </div>
-
-        <div class="character-card io">
-
-          <div class="avatar">⚡</div>
-
-          <div class="character-name">
-            Io
-          </div>
-
-          <div class="character-role">
-            TECH ENGINEER
-          </div>
-
-          <div class="character-text">
-            イオは設定・技術ガイド担当。
-            キー設定やAuto-Tune周辺の
-            テクニカル情報をサポートします。
-          </div>
-
-        </div>
-
-        <div class="character-card terra">
-
-          <div class="avatar">🟢</div>
-
-          <div class="character-name">
-            Terra
-          </div>
-
-          <div class="character-role">
-            KNOWLEDGE KEEPER
-          </div>
-
-          <div class="character-text">
-            テラはFAQや情報整理担当。
-            アプリ仕様やサポート情報を
-            分かりやすく管理します。
-          </div>
-
-        </div>
-
+    <div class="characters">
+      <div class="char io">
+        <img src="images/io.png" alt="Io">
+        <div class="txt"><h3>IO</h3><div class="role">TECH ENGINEER</div><p>キー設定やAuto-Tune周辺のテクニカル情報をサポートします。</p></div>
       </div>
-
-    </section>
-
-    <section>
-
-      <h2>Supported Use Cases</h2>
-
-      <div class="grid">
-
-        <div class="card">
-          <h3>KEY CHECK</h3>
-          <p>
-            曲やビートのキーをもとに、
-            設定候補をすばやく確認できます。
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>AUTO-TUNE SETUP</h3>
-          <p>
-            Auto-Tune系の設定で迷った時の
-            ガイドとして使えます。
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>FOR CREATORS</h3>
-          <p>
-            ラッパー、ボーカリスト、
-            ビートメイカー向けの補助ツールです。
-          </p>
-        </div>
-
+      <div class="char roki">
+        <img src="images/roki.png" alt="Roki">
+        <div class="txt"><h3>ROKI</h3><div class="role">SUPPORT GUIDE</div><p>初めて使う人にも分かりやすく、操作をやさしく案内します。</p></div>
       </div>
-
-    </section>
-
-    <section>
-
-      <h2>FAQ</h2>
-
-      <div class="grid">
-
-        <div class="card">
-          <h3>ログインは必要ですか？</h3>
-          <p>いいえ。ログイン不要です。</p>
-        </div>
-
-        <div class="card">
-          <h3>AIを使っていますか？</h3>
-          <p>いいえ。AI解析・生成は行いません。</p>
-        </div>
-
-        <div class="card">
-          <h3>音声や画像を扱いますか？</h3>
-          <p>いいえ。音声や画像を収集しません。</p>
-        </div>
-
-        <div class="card">
-          <h3>キーが合わない時は？</h3>
-          <p>元の楽曲キーや機材設定をご確認ください。</p>
-        </div>
-
+      <div class="char terra">
+        <img src="images/terra.png" alt="Terra">
+        <div class="txt"><h3>TERRA</h3><div class="role">KNOWLEDGE KEEPER</div><p>FAQ、仕様、プライバシー情報を整理して案内します。</p></div>
       </div>
+    </div>
+  </div>
 
-    </section>
+  <section>
+    <h2>How to Use</h2>
+    <ol class="steps">
+      <li>ビートや楽曲のキー／スケールを確認します。</li>
+      <li>SNAPVOXでキーを選択、または手入力します。</li>
+      <li>表示されたAuto-Tune用の設定キーを確認します。</li>
+      <li>お使いの機材・プラグイン側で設定します。</li>
+      <li>実際の音を聴きながら、楽曲に合うよう微調整してください。</li>
+    </ol>
+  </section>
 
-    <section>
+  <section>
+    <h2>Features</h2>
+    <div class="grid">
+      <div class="card"><h3>KEY CHECK</h3><p>楽曲キーをもとに設定候補を確認。</p></div>
+      <div class="card"><h3>AUTO-TUNE GUIDE</h3><p>Auto-Tune系設定の迷いを減らす補助。</p></div>
+      <div class="card"><h3>NO LOGIN</h3><p>アカウント登録なしで使用可能。</p></div>
+      <div class="card"><h3>NO AI / NO MEDIA</h3><p>AI解析なし。音声・画像も収集しません。</p></div>
+    </div>
+  </section>
 
-      <h2>Contact</h2>
+  <section>
+    <h2>FAQ</h2>
+    <div class="grid">
+      <div class="card"><h3>ログインは必要ですか？</h3><p>いいえ。ログイン不要です。</p></div>
+      <div class="card"><h3>AIを使っていますか？</h3><p>いいえ。AI解析・生成は行いません。</p></div>
+      <div class="card"><h3>音声や画像を扱いますか？</h3><p>いいえ。音声や画像を収集・保存・送信しません。</p></div>
+      <div class="card"><h3>キーが合わない時は？</h3><p>元の楽曲キー、スケール、機材側の表記差を確認してください。</p></div>
+    </div>
+  </section>
 
-      <p>
-        不具合、操作方法、表示内容に関する
-        お問い合わせはこちらまでお願いします。
-      </p>
+  <section>
+    <h2>Contact</h2>
+    <p>不具合、操作方法、表示内容に関するお問い合わせはこちらまでお願いします。</p>
+    <p class="contact">ここに作ったメールアドレスを書く</p>
+  </section>
 
-      <p class="contact">
-        ここに作ったメールアドレスを書く
-      </p>
+  <section>
+    <h2>Privacy Policy</h2>
+    <p>SNAPVOXは、個人情報を収集・保存・第三者提供しません。</p>
+    <p>音声、画像、位置情報、連絡先、アカウント情報を取得することはありません。</p>
+  </section>
 
-    </section>
-
-    <section>
-
-      <h2>Privacy Policy</h2>
-
-      <p>
-        SNAPVOXは個人情報を収集・保存・第三者提供しません。
-      </p>
-
-      <p>
-        音声、画像、位置情報、連絡先、
-        アカウント情報を取得することはありません。
-      </p>
-
-    </section>
-
-    <footer>
-      © OMEGA BRAIN / SNAPVOX
-    </footer>
-
-  </main>
-
+  <footer>© OMEGA BRAIN / SNAPVOX</footer>
+</main>
 </body>
 </html>
