@@ -3,221 +3,504 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <title>SNAPVOX Support | OMEGA BRAIN</title>
+
 <style>
+
 :root{
-  --bg:#030711;
+  --bg:#020611;
   --panel:#071226;
   --cyan:#00eaff;
   --blue:#0055ff;
   --yellow:#fff200;
   --green:#00ff88;
-  --pink:#ff2fd6;
   --text:#f7fbff;
-  --muted:#b7c4df;
 }
-*{box-sizing:border-box;margin:0;padding:0}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
 body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+
   background:
-    radial-gradient(circle at top left,rgba(0,85,255,.35),transparent 28%),
-    radial-gradient(circle at top right,rgba(0,255,136,.14),transparent 24%),
-    linear-gradient(rgba(0,234,255,.035) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(0,234,255,.035) 1px,transparent 1px),
+    radial-gradient(circle at top left,rgba(0,85,255,.28),transparent 30%),
+    radial-gradient(circle at top right,rgba(0,255,136,.08),transparent 25%),
+    linear-gradient(rgba(0,234,255,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,234,255,.04) 1px,transparent 1px),
     var(--bg);
-  background-size:auto,auto,42px 42px,42px 42px;
-  color:var(--text);
-  line-height:1.8;
+
+  background-size:
+    auto,
+    auto,
+    42px 42px,
+    42px 42px;
+
+  color:white;
+  overflow-x:hidden;
 }
+
 .wrap{
-  max-width:1220px;
+  max-width:1450px;
   margin:auto;
-  padding:24px 14px 70px;
+  padding:18px;
 }
+
 .shell{
-  border:1px solid rgba(0,234,255,.32);
-  border-radius:28px;
-  background:linear-gradient(145deg,rgba(4,10,26,.96),rgba(1,3,10,.94));
-  box-shadow:0 0 60px rgba(0,85,255,.25);
+  border-radius:34px;
+
+  border:1px solid rgba(0,234,255,.28);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(2,10,28,.98),
+      rgba(0,0,0,.96)
+    );
+
   overflow:hidden;
+
+  box-shadow:
+    0 0 80px rgba(0,85,255,.28);
 }
+
+/* NAV */
+
 nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:18px 28px;
-  border-bottom:1px solid rgba(0,234,255,.22);
+
+  padding:20px 34px;
+
+  border-bottom:1px solid rgba(0,234,255,.18);
 }
+
 .logo{
   display:flex;
   align-items:center;
-  gap:12px;
-  font-weight:900;
-  letter-spacing:.16em;
-  font-size:26px;
-}
-.logo img{
-  width:48px;
-  filter:drop-shadow(0 0 18px var(--green));
-}
-.links{
-  display:flex;
-  gap:28px;
-  font-size:13px;
-  letter-spacing:.08em;
-}
-.hero{
-  display:grid;
-  grid-template-columns:260px 1fr 260px;
-  gap:28px;
-  align-items:center;
-  padding:42px 32px 36px;
-}
-.app-icon{
-  width:100%;
-  border-radius:46px;
-  box-shadow:0 0 38px rgba(0,234,255,.65);
-}
-.frog{
-  width:100%;
-  filter:drop-shadow(0 0 18px var(--green)) drop-shadow(0 0 50px var(--green));
-}
-.center{text-align:center}
-.badge{
-  display:inline-block;
-  background:var(--yellow);
-  color:#06111f;
-  font-weight:900;
-  padding:8px 20px;
-  border-radius:999px;
-  font-size:12px;
-  letter-spacing:.18em;
-  margin-bottom:18px;
-}
-h1{
-  font-size:clamp(62px,10vw,118px);
-  line-height:.9;
-  letter-spacing:.09em;
-  color:white;
-  text-shadow:0 0 22px var(--cyan),0 0 70px var(--blue);
-}
-.sub{
-  color:var(--cyan);
-  font-weight:900;
-  letter-spacing:.22em;
-  margin-top:14px;
-}
-.lead{
-  max-width:720px;
-  margin:22px auto 0;
-  color:#d8e4ff;
-  font-size:17px;
-}
-section{
-  margin:18px 28px;
-  padding:26px;
-  border-radius:22px;
-  border:1px solid rgba(0,234,255,.22);
-  background:rgba(2,8,22,.72);
-  box-shadow:inset 0 0 40px rgba(0,234,255,.035);
-}
-h2{
-  color:var(--cyan);
-  font-size:28px;
-  margin-bottom:20px;
-  letter-spacing:.08em;
-  text-shadow:0 0 16px rgba(0,234,255,.4);
-}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:16px;
-}
-.card{
-  padding:20px;
-  border-radius:18px;
-  border:1px solid rgba(0,234,255,.18);
-  background:linear-gradient(145deg,rgba(0,12,35,.82),rgba(0,0,0,.64));
-}
-.card h3{
-  color:var(--yellow);
-  font-size:18px;
-  margin-bottom:8px;
-}
-.card p,.card li{
-  color:#dbe7ff;
-}
-.steps{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:14px;
-}
-.step{
-  text-align:center;
-  padding:18px;
-  border-radius:18px;
-  border:1px solid rgba(0,234,255,.2);
-  background:rgba(0,0,0,.36);
-}
-.num{
-  width:36px;
-  height:36px;
-  margin:0 auto 10px;
-  display:grid;
-  place-items:center;
-  border-radius:50%;
-  background:var(--blue);
-  box-shadow:0 0 18px var(--blue);
-  font-weight:900;
-}
-.contact{
-  display:inline-block;
-  margin-top:16px;
-  padding:16px 26px;
-  border-radius:16px;
-  color:var(--yellow);
-  font-size:24px;
-  font-weight:900;
-  border:1px solid rgba(255,242,0,.38);
-  background:rgba(255,242,0,.08);
-  box-shadow:0 0 28px rgba(255,242,0,.18);
-}
-.notice{
-  margin-top:14px;
-  color:var(--muted);
-  font-size:14px;
-}
-.two{
-  display:grid;
-  grid-template-columns:1fr 1fr;
   gap:18px;
 }
-footer{
+
+.logo img{
+  width:92px;
+  height:92px;
+  object-fit:contain;
+
+  filter:
+    drop-shadow(0 0 8px #00ff88)
+    drop-shadow(0 0 18px #00ff88)
+    drop-shadow(0 0 42px #00ff88);
+
+  animation:frogGlow 2.8s ease-in-out infinite;
+}
+
+@keyframes frogGlow{
+
+  0%{
+    transform:scale(1);
+    filter:
+      drop-shadow(0 0 8px #00ff88)
+      drop-shadow(0 0 18px #00ff88)
+      drop-shadow(0 0 42px #00ff88);
+  }
+
+  50%{
+    transform:scale(1.06);
+    filter:
+      drop-shadow(0 0 16px #00ff88)
+      drop-shadow(0 0 32px #00ff88)
+      drop-shadow(0 0 90px #00ff88);
+  }
+
+  100%{
+    transform:scale(1);
+    filter:
+      drop-shadow(0 0 8px #00ff88)
+      drop-shadow(0 0 18px #00ff88)
+      drop-shadow(0 0 42px #00ff88);
+  }
+}
+
+.logo-title{
+  font-size:58px;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+
+.logo-sub{
+  color:var(--cyan);
+  font-size:11px;
+  letter-spacing:.35em;
+  margin-top:-6px;
+}
+
+.links{
+  display:flex;
+  gap:42px;
+  font-size:15px;
+  color:#dfe8ff;
+}
+
+/* HERO */
+
+.hero{
+  display:grid;
+  grid-template-columns:360px 1fr 360px;
+
+  align-items:center;
+  gap:30px;
+
+  padding:40px;
+}
+
+.app-icon{
+  width:100%;
+  border-radius:44px;
+
+  box-shadow:
+    0 0 24px rgba(0,234,255,.55),
+    0 0 70px rgba(0,85,255,.45);
+
+  animation:iconPulse 3s ease-in-out infinite;
+}
+
+@keyframes iconPulse{
+
+  0%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.02);
+  }
+
+  100%{
+    transform:scale(1);
+  }
+}
+
+.center{
   text-align:center;
-  padding:30px;
-  color:#94a2c4;
-  letter-spacing:.1em;
+}
+
+.badge{
+  display:inline-block;
+
+  background:var(--yellow);
+  color:#06111f;
+
+  font-weight:900;
+  padding:10px 24px;
+
+  border-radius:999px;
+
+  letter-spacing:.18em;
   font-size:13px;
+
+  margin-bottom:22px;
 }
-@media(max-width:850px){
-  nav{display:block;text-align:center}
-  .links{justify-content:center;flex-wrap:wrap;margin-top:14px;gap:14px}
-  .hero{grid-template-columns:1fr;padding:30px 22px}
-  .app-icon,.frog{max-width:260px;margin:auto}
-  .two{grid-template-columns:1fr}
+
+.hero h1{
+  font-size:clamp(78px,11vw,150px);
+
+  line-height:.88;
+
+  letter-spacing:.08em;
+
+  text-shadow:
+    0 0 24px var(--cyan),
+    0 0 80px var(--blue);
 }
+
+.hero-sub{
+  margin-top:16px;
+
+  color:var(--cyan);
+
+  font-size:20px;
+  font-weight:900;
+
+  letter-spacing:.35em;
+}
+
+.lead{
+  max-width:760px;
+
+  margin:24px auto 0;
+
+  color:#d7e6ff;
+
+  font-size:24px;
+  line-height:1.9;
+}
+
+.frog{
+  width:100%;
+  max-width:360px;
+
+  justify-self:center;
+
+  filter:
+    drop-shadow(0 0 10px #00ff88)
+    drop-shadow(0 0 28px #00ff88)
+    drop-shadow(0 0 80px #00ff88);
+
+  animation:frogFloat 4s ease-in-out infinite;
+}
+
+@keyframes frogFloat{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-12px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+}
+
+/* SECTION */
+
+section{
+  margin:24px;
+
+  padding:28px;
+
+  border-radius:26px;
+
+  border:1px solid rgba(0,234,255,.18);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(0,12,35,.84),
+      rgba(0,0,0,.72)
+    );
+}
+
+h2{
+  color:var(--cyan);
+
+  margin-bottom:24px;
+
+  font-size:34px;
+
+  letter-spacing:.08em;
+
+  text-shadow:
+    0 0 18px rgba(0,234,255,.35);
+}
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:18px;
+}
+
+.step{
+  border-radius:22px;
+
+  border:1px solid rgba(0,234,255,.16);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(0,18,40,.82),
+      rgba(0,0,0,.58)
+    );
+
+  padding:24px;
+
+  text-align:center;
+}
+
+.num{
+  width:42px;
+  height:42px;
+
+  margin:0 auto 14px;
+
+  border-radius:50%;
+
+  display:grid;
+  place-items:center;
+
+  background:var(--blue);
+
+  font-weight:900;
+
+  box-shadow:
+    0 0 22px var(--blue);
+}
+
+.step h3{
+  margin-bottom:10px;
+
+  color:white;
+
+  font-size:24px;
+}
+
+.step p{
+  color:#dbe7ff;
+  font-size:16px;
+  line-height:1.8;
+}
+
+/* GRID */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+}
+
+.card{
+  border-radius:20px;
+
+  border:1px solid rgba(0,234,255,.18);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(0,14,36,.88),
+      rgba(0,0,0,.66)
+    );
+
+  padding:24px;
+}
+
+.card h3{
+  color:var(--yellow);
+
+  margin-bottom:12px;
+
+  font-size:24px;
+}
+
+.card p{
+  color:#dce7ff;
+  line-height:1.8;
+  font-size:16px;
+}
+
+/* CONTACT */
+
+.contact{
+  display:inline-block;
+
+  margin-top:18px;
+
+  padding:18px 28px;
+
+  border-radius:18px;
+
+  background:
+    rgba(255,242,0,.08);
+
+  border:1px solid rgba(255,242,0,.28);
+
+  color:var(--yellow);
+
+  font-size:34px;
+  font-weight:900;
+
+  box-shadow:
+    0 0 28px rgba(255,242,0,.18);
+}
+
+.notice{
+  margin-top:18px;
+
+  color:#b5c3df;
+
+  line-height:1.9;
+}
+
+footer{
+  padding:40px;
+
+  text-align:center;
+
+  color:#90a0c4;
+
+  letter-spacing:.18em;
+}
+
+/* MOBILE */
+
+@media(max-width:1100px){
+
+  nav{
+    display:block;
+    text-align:center;
+  }
+
+  .links{
+    justify-content:center;
+    margin-top:18px;
+    flex-wrap:wrap;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .app-icon{
+    max-width:300px;
+    margin:auto;
+  }
+
+  .frog{
+    max-width:260px;
+  }
+
+  .logo{
+    justify-content:center;
+  }
+
+  .logo-title{
+    font-size:42px;
+  }
+
+}
+
 </style>
 </head>
 
 <body>
+
 <div class="wrap">
 <div class="shell">
 
 <nav>
+
   <div class="logo">
+
     <img src="frog.png" alt="SNAPVOX Frog">
-    <span>SNAPVOX</span>
+
+    <div>
+      <div class="logo-title">
+        SNAPVOX
+      </div>
+
+      <div class="logo-sub">
+        AUTO-TUNE KEY GUIDE SYSTEM
+      </div>
+    </div>
+
   </div>
+
   <div class="links">
     <span>使い方</span>
     <span>機能</span>
@@ -225,78 +508,219 @@ footer{
     <span>プライバシー</span>
     <span>お問い合わせ</span>
   </div>
+
 </nav>
 
 <div class="hero">
-  <img class="app-icon" src="app-icon.png" alt="SNAPVOX app icon">
+
+  <img
+    class="app-icon"
+    src="app-icon.png"
+    alt="SNAPVOX App Icon"
+  >
 
   <div class="center">
-    <div class="badge">AUTO-TUNE KEY GUIDE SYSTEM</div>
+
+    <div class="badge">
+      AUTO-TUNE KEY GUIDE SYSTEM
+    </div>
+
     <h1>SNAPVOX</h1>
-    <div class="sub">OFFICIAL SUPPORT</div>
+
+    <div class="hero-sub">
+      OFFICIAL SUPPORT
+    </div>
+
     <p class="lead">
-      SNAPVOXは、ビートや楽曲のキー／スケールをもとに、Auto-Tune系機材・プラグインで使いやすい設定キーを確認するための音楽制作サポートアプリです。ラッパー、ボーカリスト、ビートメイカーの制作をサポートします。
+      SNAPVOXは、ビートや楽曲のキー／スケールをもとに、
+      Auto-Tune系機材・プラグインで使いやすい設定キーを確認するための
+      音楽制作サポートアプリです。
+      ラッパー、ボーカリスト、ビートメイカーの制作をサポートします。
+    </p>
+
+  </div>
+
+  <img
+    class="frog"
+    src="frog.png"
+    alt="SNAPVOX Frog mascot"
+  >
+
+</div>
+
+<section>
+
+<h2>
+使い方 / HOW TO USE
+</h2>
+
+<div class="steps">
+
+  <div class="step">
+    <div class="num">1</div>
+    <h3>キーを確認</h3>
+    <p>ビートや楽曲のキー／スケールを確認します。</p>
+  </div>
+
+  <div class="step">
+    <div class="num">2</div>
+    <h3>キーを選択</h3>
+    <p>SNAPVOXでキーを選択、または手入力します。</p>
+  </div>
+
+  <div class="step">
+    <div class="num">3</div>
+    <h3>機材を選択</h3>
+    <p>使用する機材・プラグインを選択します。</p>
+  </div>
+
+  <div class="step">
+    <div class="num">4</div>
+    <h3>設定キー確認</h3>
+    <p>表示された設定キーを確認します。</p>
+  </div>
+
+  <div class="step">
+    <div class="num">5</div>
+    <h3>機材に設定</h3>
+    <p>表示されたキーを機材側へ設定します。</p>
+  </div>
+
+  <div class="step">
+    <div class="num">6</div>
+    <h3>微調整</h3>
+    <p>実際の音を聴きながら楽曲に合わせます。</p>
+  </div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>
+主な機能 / FEATURES
+</h2>
+
+<div class="grid">
+
+  <div class="card">
+    <h3>FAST GUIDE</h3>
+    <p>
+      制作中に迷いやすいキー設定を
+      すばやく確認できます。
     </p>
   </div>
 
-  <img class="frog" src="frog.png" alt="SNAPVOX Frog mascot">
+  <div class="card">
+    <h3>NO LOGIN</h3>
+    <p>
+      ログインやアカウント登録なしで
+      利用できます。
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>SUPPORTED</h3>
+    <p>
+      Auto-Tune系機材・プラグイン設定の
+      参考情報として利用できます。
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>NO AI / NO MEDIA</h3>
+    <p>
+      AI解析、音声収集、画像収集は
+      行いません。
+    </p>
+  </div>
+
 </div>
 
-<section>
-<h2>使い方 / HOW TO USE</h2>
-<div class="steps">
-  <div class="step"><div class="num">1</div><h3>キーを確認</h3><p>楽曲やビートのキー／スケールを確認します。</p></div>
-  <div class="step"><div class="num">2</div><h3>キーを選択</h3><p>SNAPVOXでキーを選択、または手入力します。</p></div>
-  <div class="step"><div class="num">3</div><h3>機材を選択</h3><p>使用する機材・プラグインを選択します。</p></div>
-  <div class="step"><div class="num">4</div><h3>設定キー確認</h3><p>表示されたAuto-Tune用の設定キーを確認します。</p></div>
-  <div class="step"><div class="num">5</div><h3>機材に設定</h3><p>表示されたキーを機材・プラグイン側に設定します。</p></div>
-  <div class="step"><div class="num">6</div><h3>微調整</h3><p>実際の音を聴きながら楽曲に合わせます。</p></div>
-</div>
-<p class="notice">
-※ 機材やプラグインによってキー表記や設定方法が異なる場合があります。最終的な判断は実際の音程感・楽曲キーを確認してください。
-</p>
 </section>
 
 <section>
-<h2>主な機能 / FEATURES</h2>
+
+<h2>
+FAQ
+</h2>
+
 <div class="grid">
-  <div class="card"><h3>FAST GUIDE</h3><p>制作中に迷いやすいキー設定をすばやく確認できます。</p></div>
-  <div class="card"><h3>NO LOGIN</h3><p>ログインやアカウント登録なしで利用できます。</p></div>
-  <div class="card"><h3>SUPPORTED</h3><p>Auto-Tune系機材・プラグイン設定の参考情報として使えます。</p></div>
-  <div class="card"><h3>NO AI / NO MEDIA</h3><p>AI解析、音声収集、画像収集は行いません。</p></div>
+
+  <div class="card">
+    <h3>ログインは必要ですか？</h3>
+    <p>いいえ。ログイン不要です。</p>
+  </div>
+
+  <div class="card">
+    <h3>AIを使用していますか？</h3>
+    <p>いいえ。AI解析・生成は行いません。</p>
+  </div>
+
+  <div class="card">
+    <h3>音声や画像を保存しますか？</h3>
+    <p>いいえ。保存・送信は行いません。</p>
+  </div>
+
+  <div class="card">
+    <h3>キーが合わない場合は？</h3>
+    <p>
+      元キー、スケール、機材側の表記差を
+      確認してください。
+    </p>
+  </div>
+
 </div>
+
 </section>
 
-<div class="two">
 <section>
-<h2>FAQ</h2>
-<div class="grid">
-  <div class="card"><h3>ログインは必要ですか？</h3><p>いいえ。ログイン不要です。</p></div>
-  <div class="card"><h3>AIを使用していますか？</h3><p>いいえ。AI解析・生成は行っていません。</p></div>
-  <div class="card"><h3>音声や画像を保存しますか？</h3><p>いいえ。保存・送信しません。</p></div>
-  <div class="card"><h3>キーが合わない場合は？</h3><p>元キー、スケール、機材側の表記差を確認してください。</p></div>
-</div>
-</section>
 
-<section>
-<h2>お問い合わせ / CONTACT</h2>
-<p>不具合、操作方法、表示内容に関するお問い合わせはこちらまでお願いします。</p>
-<div class="contact">support@snapvox.app</div>
+<h2>
+お問い合わせ / CONTACT
+</h2>
+
+<p>
+不具合、操作方法、表示内容に関する
+お問い合わせはこちらまでお願いします。
+</p>
+
+<div class="contact">
+support@snapvox.app
+</div>
+
 <p class="notice">
-お問い合わせの際は、使用端末、iOSバージョン、アプリのバージョン、不具合の内容をできるだけ詳しくお知らせください。
+お問い合わせの際は、
+使用端末、
+iOSバージョン、
+アプリバージョン、
+発生手順などを
+できるだけ詳しくお知らせください。
 </p>
+
 </section>
-</div>
 
 <section>
-<h2>プライバシーポリシー / PRIVACY POLICY</h2>
-<p>
-SNAPVOXは、個人情報を収集・保存・第三者提供しません。アプリ内で音声、画像、位置情報、連絡先、アカウント情報を取得することはありません。
+
+<h2>
+プライバシーポリシー / PRIVACY POLICY
+</h2>
+
+<p class="notice">
+
+SNAPVOXは、
+個人情報を収集・保存・第三者提供しません。
+
+アプリ内で音声、
+画像、
+位置情報、
+連絡先、
+アカウント情報を
+取得することはありません。
+
 </p>
-<br>
-<p>
-SNAPVOX does not collect, store, or share personal information. The app does not access audio files, images, location data, contacts, or account information.
-</p>
+
 </section>
 
 <footer>
@@ -305,5 +729,6 @@ SNAPVOX does not collect, store, or share personal information. The app does not
 
 </div>
 </div>
+
 </body>
 </html>
